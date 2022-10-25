@@ -1,0 +1,361 @@
+<!DOCTYPE html >
+<!--[if IE 8]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="es-AR" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"> <!--<![endif]-->
+<head>
+
+    <meta charset="utf-8">
+
+    <!-- METAS SEO  -->
+    <link rel="canonical" href="" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Chacra 71" />
+    <meta property="og:description" content="Posadas, Misiones" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="Chacra 71 - Posadas, Misiones" />
+    <meta property="article:tag" content="web" />
+    <meta property="article:section" content="Arriba" />
+    <meta property="article:published_time" content="2018-07-17T10:14:26-03:00" />
+    <meta property="article:modified_time" content="2018-07-17T10:15:57-03:00" />
+    <meta property="og:updated_time" content="2018-07-17T10:15:57-03:00" />
+    <meta property="og:image" content="img/favicon.png" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="395" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Chacra 71" />
+    <meta name="twitter:description" content="Posadas, Misiones" />
+    <meta name="twitter:image" content="img/favicon.png" />
+    <!-- / METAS SEO -->
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Chacra 71 - Posadas, Misiones">
+    <meta name="keywords" content="Chacra 71 - Posadas, Misiones">
+
+    <meta name="author" content="https://mauriciomss.github.io/">
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#FF0000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#FF0000">
+
+    <title>Chacra 71 - Posadas, Misiones</title>
+
+    <!-- =========================
+    FAV AND TOUCH ICONS  
+    ============================== -->
+    <link rel="shortcut icon" href="img/favicon.png" />
+
+
+    <script>
+        var map;
+        var InforObj = [];
+        var centerCords = {
+            lat: -27.380796391917293,
+            lng: -55.916554059328504
+        };
+        var markersOnMap = [{
+                placeName: "Alumbrado",
+                Details: "Sin funcionar. Quemado",
+                Direccion: "Miño 3654, entre Alvár Nuñes y Luchessi",
+                Expediente: "",
+                Imagen: "img/fotos/alum001.jpeg",
+                LatLng: [{
+                    lat: -27.3811596192023,
+                    lng: -55.916647026239666
+                }],
+                Icon: "img/icons/lighthouse-no.png"
+            },
+            {
+                placeName: "Alumbrado",
+                Details: " Sin funcionar. Intermitente",
+                Direccion: "Luchessi y Miño",
+                Expediente: "22101061",
+                Imagen: "img/fotos/alum002.jpeg",
+                LatLng: [{
+                    lat: -27.380763203118864,
+                    lng: -55.916609294365564
+                }],
+                Icon: "img/icons/lighthouse-no.png"
+            },
+            {
+                placeName: "Alumbrado",
+                Details: "Tapado. Falta Poda",
+                Direccion: "Miño entre Luchessi y Tamareu",
+                Expediente: "",
+                Imagen: "img/fotos/alum003.jpeg",
+                LatLng: [{
+                    lat: -27.38038067141899,
+                    lng: -55.91660929435974
+                }],
+                Icon: "img/icons/lighthouse-no.png"
+            },
+            {
+                placeName: "Alumbrado",
+                Details: "Sin funcionar",
+                Direccion: "Serrano entre Tamareu y Brown",
+                Expediente: "",
+                Imagen: "img/fotos/alum004.jpeg",
+                LatLng: [{
+                    lat: -27.379305169435057, 
+                    lng: -55.91734231878093
+                }],
+                Icon: "img/icons/lighthouse-no.png"
+            },
+
+            {
+                placeName: "Alumbrado",
+                Details: "Sin funcionar",
+                Direccion: "Alvár Nuñes en la cortada Miño",
+                Expediente: "",
+                Imagen: "img/fotos/alum005.jpeg",
+                LatLng: [{
+                    lat: -27.381620389779286,
+                    lng: -55.916257442615915
+                }],
+                Icon: "img/icons/lighthouse-no.png"
+            },
+            {
+                placeName: "Alumbrado",
+                Details: "Sin funcionar",
+                Direccion: "Luchessi entre San Martin y Serrano",
+                Expediente: "",
+                Imagen: "img/fotos/alum006.jpeg",
+                LatLng: [{
+                    lat: -27.380543337262555,
+                    lng: -55.918003406606324
+                }],
+                Icon: "img/icons/lighthouse-no.png"
+            },
+            {
+                placeName: "Alumbrado",
+                Details: "Solicitud por falta de alumbrado",
+                Direccion: "Esquina Alvár Nuñes y Serrano",
+                Expediente: "22070393",
+                Imagen: "img/fotos/alum007.jpeg",
+                LatLng: [{
+                    lat: -27.381538250609964,
+                    lng: -55.91751946140226
+                }],
+                Icon: "img/icons/lighthouse-no.png"
+            },
+
+
+            
+            {
+                placeName: "Contenedor",
+                Details: "Contenedor Roto, por cancha de futbol",
+                Direccion: "Miño y Luchessi hacia Tomas Guido. Al lado de la cancha",
+                Expediente: "",
+                Imagen: "img/fotos/cont001.jpeg",
+                LatLng: [{
+                    lat: -27.380836858496668,
+                    lng: -55.915827448349205
+                }],
+                Icon: "img/icons/trash-no.png"
+            },
+
+
+
+            /*
+            {
+                placeName: "Robo Sandra",
+                Details: "Fecha",
+                Direccion: "",
+                LatLng: [{
+                    lat: -27.380580019772548, 
+                    lng: -55.9173671059302
+                }],
+                Icon: "img/icons/robbery.png"
+            },
+            {
+                placeName: "Robo Sandra",
+                Details: "Fecha",
+                Direccion: "",
+                LatLng: [{
+                    lat: -27.380588961095825, 
+                    lng: -55.91732427510522
+                }],
+                Icon: "img/icons/robbery.png"
+            },
+            {
+                placeName: "Robo Blanco",
+                Details: "Fecha",
+                Direccion: "",
+                LatLng: [{
+                    lat: -27.381101672485265,
+                    lng: -55.9174438144478
+                }],
+                Icon: "img/icons/robbery.png"
+            },
+            {
+                placeName: "Robo Blanco",
+                Details: "Fecha",
+                Direccion: "",
+                LatLng: [{
+                    lat: -27.381112583812843,
+                    lng: -55.917468550156876
+                }],
+                Icon: "img/icons/robbery.png"
+            },
+            {
+                placeName: "Robo Ricardo",
+                Details: "Fecha",
+                Direccion: "",
+                LatLng: [{
+                    lat: -27.380823450896013, 
+                    lng: -55.91686032916507
+                }],
+                Icon: "img/icons/robbery.png"
+            },
+            {
+                placeName: "Robo ",
+                Details: "Fecha",
+                Direccion: "",
+                LatLng: [{
+                    lat: -27.380906297901436,
+                    lng: -55.91607918695298
+                }],
+                Icon: "img/icons/robbery.png"
+            },
+            {
+                placeName: "Faltaria Semaforo ",
+                Details: "Desde las calles unicas hay mucho mas transito",
+                Direccion: "",
+                LatLng: [{
+                    lat: -27.379295855218704, 
+                    lng: -55.91444546903588
+                }],
+                Icon: "img/icons/trafficlight.png"
+            },
+            {
+                placeName: "Faltaria Semaforo ",
+                Details: "Desde las calles unicas hay mucho mas transito",
+                Direccion: "",
+                LatLng: [{
+                    lat: -27.382641151927487, 
+                    lng: -55.91487836453863
+                }],
+                Icon: "img/icons/trafficlight.png"
+            }
+            */
+        ];
+
+        window.onload = function () {
+            initMap();
+        };
+
+        function addMarkerInfo() {
+            for (var i = 0; i < markersOnMap.length; i++) {
+                var contentString = '<div id="content"><h3>' + markersOnMap[i].placeName + '</h3>'+
+                                        '<p>' + 
+                                            markersOnMap[i].Details + 
+                                            '<br/>' +
+                                            '<b>Nro Reclamo: '+ markersOnMap[i].Expediente + '</b>' + 
+                                            '<br/>' +
+                                            '<a href="https://www.google.com/maps/search/?api=1&query=' + markersOnMap[i].LatLng[0].lat + ',' + markersOnMap[i].LatLng[0].lng + '&zoom=2" target="_blank">' +
+                                                markersOnMap[i].Direccion +
+                                            '</a>' +
+                                        '</p>' +
+                                        '<a href="'+ markersOnMap[i].Imagen + '" target="_blank">' +
+                                            '<img src="'+ markersOnMap[i].Imagen + '" height="100px">' +
+                                        '</a>' +
+                                    '</div>';
+
+                const marker = new google.maps.Marker({
+                    position: markersOnMap[i].LatLng[0],
+                    map: map,
+                    icon: {
+                      url: markersOnMap[i].Icon
+                    },
+                    title: markersOnMap[i].placeName + '\r\nNro Reclamo: '+ markersOnMap[i].Expediente
+                });
+
+                const infowindow = new google.maps.InfoWindow({
+                    content: contentString,
+                    maxWidth: 300
+                });
+
+                marker.addListener('click', function () {
+                    closeOtherInfo();
+                    infowindow.open(marker.get('map'), marker);
+                    InforObj[0] = infowindow;
+                });
+
+            }
+        }
+
+        var callesAsfaltadas = [
+            { lat: -27.382276535240887, lng: -55.917721447076616 },
+            { lat: -27.380658548722202, lng: -55.91748401797161 }
+        ];
+
+        var limiteChacra = [
+            { lat: -27.382184097831967, lng: -55.91860592375464 },
+            { lat: -27.378937053769093, lng: -55.91812249581278 },
+            { lat: -27.379322301265375, lng: -55.91446579730699 },
+            { lat: -27.382602354181913, lng: -55.9149058406865 }
+        ];
+
+        function closeOtherInfo() {
+            if (InforObj.length > 0) {
+                /* detach the info-window from the marker ... undocumented in the API docs */
+                InforObj[0].set("marker", null);
+                /* and close it */
+                InforObj[0].close();
+                /* blank the array */
+                InforObj.length = 0;
+            }
+        }
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 17.5,
+                center: centerCords,
+                //mapTypeId: 'satellite' //mapTypeId: 'terrain'
+            });
+
+            var noPoi = [{
+                featureType: "poi",
+                elementType: "labels",
+                stylers: [{ visibility: "off" }]
+            }];
+            map.setOptions({ styles: noPoi });
+
+
+
+            var asfaltadas = new google.maps.Polyline({
+                path: callesAsfaltadas,
+                map: map,
+                strokeColor: '#585858',
+                strokeWeight: 12
+            });
+
+            var poligono = new google.maps.Polygon({
+                path: limiteChacra,
+                map: map,
+                strokeWeight: 5,
+                fillColor: "#FFFFFF",
+                fillOpacity: .01,  //This changes throughout the program
+                strokeColor: '#FFFF00'
+            });
+
+            addMarkerInfo();
+
+            var windowHeight = window.innerHeight - 20;
+            document.getElementById("map").style.height = windowHeight+'px';
+        }
+
+
+        
+    </script>
+</head>
+
+<body>
+    <div id="map" style="width:100%;"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJee90YnGpXnV1iu7iL31n7UzG2xxdxRY"></script>    
+</body>
+
+</html>
