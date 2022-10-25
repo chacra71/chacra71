@@ -37,17 +37,13 @@
     <meta name="author" content="https://mauriciomss.github.io/">
 
     <!-- Chrome, Firefox OS and Opera -->
-    <meta name="theme-color" content="#FF0000">
+    <meta name="theme-color" content="#0040FF">
     <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="#FF0000">
+    <meta name="msapplication-navbutton-color" content="#0040FF">
 
     <title>Chacra 71 - Posadas, Misiones</title>
 
-    <!-- =========================
-    FAV AND TOUCH ICONS  
-    ============================== -->
     <link rel="shortcut icon" href="https://chacra71.github.io/img/favicon.png" />
-
 
     <script>
         var map;
@@ -156,7 +152,30 @@
                 }],
                 Icon: "img/icons/trash-no.png"
             },
-
+            {
+                placeName: "Contenedor",
+                Details: "Contenedor Robado",
+                Direccion: "Padre Serrano y Tamareu",
+                Expediente: "",
+                Imagen: "",
+                LatLng: [{
+                    lat: -27.37986360525824,
+                    lng: -55.91726030537399
+                }],
+                Icon: "img/icons/trash-no.png"
+            },
+            {
+                placeName: "Contenedor",
+                Details: "Contenedor Faltante",
+                Direccion: "Tamareu entre cancha de Huracán y Tomas Guido",
+                Expediente: "",
+                Imagen: "",
+                LatLng: [{
+                    lat: -27.380049554099667, 
+                    lng: -55.915079582239926
+                }],
+                Icon: "img/icons/trash-no.png"
+            },
 
 
             /*
@@ -258,11 +277,15 @@
                                             '<a href="https://www.google.com/maps/search/?api=1&query=' + markersOnMap[i].LatLng[0].lat + ',' + markersOnMap[i].LatLng[0].lng + '&zoom=2" target="_blank">' +
                                                 markersOnMap[i].Direccion +
                                             '</a>' +
-                                        '</p>' +
-                                        '<a href="'+ markersOnMap[i].Imagen + '" target="_blank">' +
-                                            '<img src="'+ markersOnMap[i].Imagen + '" height="100px">' +
-                                        '</a>' +
-                                    '</div>';
+                                        '</p>';
+
+                                        if (markersOnMap[i].Imagen) {
+                                            contentString +='<a href="'+ markersOnMap[i].Imagen + '" target="_blank">' +
+                                                '<img src="'+ markersOnMap[i].Imagen + '" height="100px">' +
+                                            '</a>';
+                                        }
+
+                                    contentString += '</div>';
 
                 const marker = new google.maps.Marker({
                     position: markersOnMap[i].LatLng[0],
@@ -270,7 +293,7 @@
                     icon: {
                       url: markersOnMap[i].Icon
                     },
-                    title: markersOnMap[i].placeName + '\r\nNro Reclamo: '+ markersOnMap[i].Expediente
+                    title: markersOnMap[i].Details
                 });
 
                 const infowindow = new google.maps.InfoWindow({
