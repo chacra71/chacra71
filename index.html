@@ -45,6 +45,32 @@
 
     <link rel="shortcut icon" href="https://chacra71.github.io/img/favicon.png" />
 
+    <style>
+        .accordion {
+            background-color: #6E6E6E;
+            color: #000;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .active, .accordion:hover {
+            background-color: #ccc; 
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+    </style>
+
     <script>
         var map;
         var InforObj = [];
@@ -367,18 +393,78 @@
 
             addMarkerInfo();
 
-            var windowHeight = window.innerHeight - 20;
+            var windowHeight = window.innerHeight - 100;
             document.getElementById("map").style.height = windowHeight+'px';
         }
-
-
-        
     </script>
 </head>
 
 <body>
+    <button class="accordion">
+        VER DETALLE: <img src="img/icons/lighthouse-no.png">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+        <img src="img/icons/trash-no.png">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+        <img src="img/icons/road.png">
+    </button>
+    <div class="panel">
+        <p>
+            <img src="img/icons/lighthouse-no.png"><strong>Alumbrado público (<span>7</span>).</strong>
+            <br/>Sin funcionar. Quemado
+            <br/>Miño 3654, entre Alvár Nuñes y Luchessi
+            <br/>
+            <br/>Sin funcionar. Intermitente
+            <br/>Luchessi y Miño
+            <br/>Nro Reclamo: 22101061
+            <br/>
+            <br/>Tapado. Falta Poda
+            <br/>Miño entre Luchessi y Tamareu
+            <br/>
+            <br/>Sin funcionar
+            <br/>Serrano entre Tamareu y Brown
+            <br/>
+            <br/>Sin funcionar
+            <br/>Alvár Nuñes en la cortada Miño
+            <br/>
+            <br/>Sin funcionar
+            <br/>Luchessi entre San Martin y Serrano
+            <br/>
+            <br/>Solicitud por falta de alumbrado
+            <br/>Esquina Alvár Nuñes y Serrano
+            <br/>Nro Reclamo: 22070393
+        </p>
+        <p>
+            <img src="img/icons/trash-no.png"><strong>Contenedores (<span>3</span>).</strong>
+            <br/>Contenedor Roto, por cancha de futbol
+            <br/>Miño y Luchessi hacia Tomas Guido. Al lado de la cancha
+            <br/>
+            <br/>Contenedor Robado
+            <br/>Padre Serrano y Tamareu
+            <br/>
+            <br/>Contenedor Faltante
+            <br/>Tamareu entre cancha de Huracán y Tomas Guido
+        </p>
+        <p>
+            <img src="img/icons/road.png"><strong>2 cuadras asfaltadas de 19.</strong>
+        </p>
+    </div>
+
     <div id="map" style="width:100%;"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJee90YnGpXnV1iu7iL31n7UzG2xxdxRY"></script>    
-</body>
 
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+              panel.style.display = "none";
+            } else {
+              panel.style.display = "block";
+            }
+          });
+        }
+    </script>
+</body>
 </html>
