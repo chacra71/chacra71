@@ -79,8 +79,9 @@
             lng: -55.916554059328504
         };
         var markersOnMap = [{
+                estado: "ok",
                 placeName: "Alumbrado",
-                Details: "Sin funcionar. Quemado",
+                Details: "Reparado", //Details: "Sin funcionar. Quemado",
                 Direccion: "Miño 3654, entre Alvár Nuñes y Luchessi",
                 Expediente: "",
                 Imagen: "img/fotos/alum001.jpeg",
@@ -88,21 +89,49 @@
                     lat: -27.3811596192023,
                     lng: -55.916647026239666
                 }],
-                Icon: "img/icons/lighthouse-no.png"
+                Icon: "img/icons/lighthouse-ok.png"
             },
             {
+                estado: "ok",
                 placeName: "Alumbrado",
-                Details: " Sin funcionar. Intermitente",
+                Details: "Reparado", //Details: "Sin funcionar. Intermitente",
                 Direccion: "Luchessi y Miño",
-                Expediente: "22101061",
+                Expediente: "",
                 Imagen: "img/fotos/alum002.jpeg",
                 LatLng: [{
-                    lat: -27.380763203118864,
-                    lng: -55.916609294365564
+                    lat: -27.38078604141294,
+                    lng: -55.916559587987685
+                }],
+                Icon: "img/icons/lighthouse-ok.png"
+            },
+            {
+                estado: "none",
+                placeName: "Alumbrado",
+                Details: " Sin funcionar.",
+                Direccion: "Luchessi casi Miño",
+                Expediente: "22101061",
+                Imagen: "img/fotos/alum008.jpeg",
+                LatLng: [{
+                    lat: -27.38085634246395,
+                    lng: -55.91615966734351
                 }],
                 Icon: "img/icons/lighthouse-no.png"
             },
             {
+                estado: "ok",
+                placeName: "Alumbrado",
+                Details: "Reparado", //Details: " Sin funcionar.",
+                Direccion: "Hermita",
+                Expediente: "",
+                Imagen: "",
+                LatLng: [{
+                    lat: -27.381394569003426,
+                    lng: -55.91768888724303
+                }],
+                Icon: "img/icons/lighthouse-ok.png"
+            },
+            {
+                estado: "none",
                 placeName: "Alumbrado",
                 Details: "Tapado. Falta Poda",
                 Direccion: "Miño entre Luchessi y Tamareu",
@@ -115,6 +144,7 @@
                 Icon: "img/icons/lighthouse-no.png"
             },
             {
+                estado: "none",
                 placeName: "Alumbrado",
                 Details: "Sin funcionar",
                 Direccion: "Serrano entre Tamareu y Brown",
@@ -128,6 +158,7 @@
             },
 
             {
+                estado: "none",
                 placeName: "Alumbrado",
                 Details: "Sin funcionar",
                 Direccion: "Alvár Nuñes en la cortada Miño",
@@ -140,6 +171,7 @@
                 Icon: "img/icons/lighthouse-no.png"
             },
             {
+                estado: "none",
                 placeName: "Alumbrado",
                 Details: "Sin funcionar",
                 Direccion: "Luchessi entre San Martin y Serrano",
@@ -152,6 +184,7 @@
                 Icon: "img/icons/lighthouse-no.png"
             },
             {
+                estado: "none",
                 placeName: "Alumbrado",
                 Details: "Solicitud por falta de alumbrado",
                 Direccion: "Esquina Alvár Nuñes y Serrano",
@@ -167,6 +200,7 @@
 
             
             {
+                estado: "none",
                 placeName: "Contenedor",
                 Details: "Contenedor Roto, por cancha de futbol",
                 Direccion: "Miño y Luchessi hacia Tomas Guido. Al lado de la cancha",
@@ -179,6 +213,7 @@
                 Icon: "img/icons/trash-no.png"
             },
             {
+                estado: "none",
                 placeName: "Contenedor",
                 Details: "Contenedor Robado",
                 Direccion: "Padre Serrano y Tamareu",
@@ -191,6 +226,7 @@
                 Icon: "img/icons/trash-no.png"
             },
             {
+                estado: "none",
                 placeName: "Contenedor",
                 Details: "Contenedor Faltante",
                 Direccion: "Tamareu entre cancha de Huracán y Tomas Guido",
@@ -295,20 +331,25 @@
         function addMarkerInfo() {
             for (var i = 0; i < markersOnMap.length; i++) {
                 var contentString = '<div id="content"><h3>' + markersOnMap[i].placeName + '</h3>'+
-                                        '<p>' + 
-                                            markersOnMap[i].Details + 
-                                            '<br/>' +
-                                            '<b>Nro Reclamo: '+ markersOnMap[i].Expediente + '</b>' + 
-                                            '<br/>' +
-                                            '<a href="https://www.google.com/maps/search/?api=1&query=' + markersOnMap[i].LatLng[0].lat + ',' + markersOnMap[i].LatLng[0].lng + '&zoom=2" target="_blank">' +
-                                                markersOnMap[i].Direccion +
-                                            '</a>' +
-                                        '</p>';
+                                        '<p>' +
+                                            markersOnMap[i].Details;
 
-                                        if (markersOnMap[i].Imagen) {
-                                            contentString +='<a href="'+ markersOnMap[i].Imagen + '" target="_blank">' +
-                                                '<img src="'+ markersOnMap[i].Imagen + '" height="100px">' +
-                                            '</a>';
+                                            if (markersOnMap[i].estado == 'none') {
+                                                contentString += '<br/>' +
+                                                '<b>Nro Reclamo: '+ markersOnMap[i].Expediente + '</b>' + 
+                                                '<br/>' +
+                                                '<a href="https://www.google.com/maps/search/?api=1&query=' + markersOnMap[i].LatLng[0].lat + ',' + markersOnMap[i].LatLng[0].lng + '&zoom=2" target="_blank">' +
+                                                    markersOnMap[i].Direccion +
+                                                '</a>';
+                                            }
+
+                                        contentString += '</p>';
+                                        if (markersOnMap[i].estado == 'none') {
+                                            if (markersOnMap[i].Imagen) {
+                                                contentString +='<a href="'+ markersOnMap[i].Imagen + '" target="_blank">' +
+                                                    '<img src="'+ markersOnMap[i].Imagen + '" height="100px">' +
+                                                '</a>';
+                                            }
                                         }
 
                                     contentString += '</div>';
@@ -360,8 +401,18 @@
         }
 
         function initMap() {
+
+            var ancho = window.innerWidth;
+            console.log(ancho);
+            if (ancho > 600) 
+                var zoom = 17.5;
+            else
+                var zoom = 17;
+            console.log(zoom);
+
+
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 17,
+                zoom: zoom,
                 center: centerCords,
                 //mapTypeId: 'satellite' //mapTypeId: 'terrain'
             });
@@ -401,10 +452,11 @@
 
 <body>
     <button class="accordion">
-        VER DETALLE: <img src="img/icons/lighthouse-no.png">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
-        <img src="img/icons/trash-no.png">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
-        <img src="img/icons/road.png">
+        <img src="img/icons/lighthouse-no.png">(6)Alumbrado sin funcionar&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+        <img src="img/icons/trash-no.png">(3) Contenedor a remplazar&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+        <img src="img/icons/road.png">2 cuadras asfaltadas de 19.
     </button>
+    <!--
     <div class="panel">
         <p>
             <img src="img/icons/lighthouse-no.png"><strong>Alumbrado público (<span>7</span>).</strong>
@@ -446,11 +498,13 @@
             <img src="img/icons/road.png"><strong>2 cuadras asfaltadas de 19.</strong>
         </p>
     </div>
+    -->
 
     <div id="map" style="width:100%;"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJee90YnGpXnV1iu7iL31n7UzG2xxdxRY"></script>    
 
     <script>
+        /*
         var acc = document.getElementsByClassName("accordion");
         var i;
 
@@ -465,6 +519,7 @@
             }
           });
         }
+        */
     </script>
 </body>
 </html>
