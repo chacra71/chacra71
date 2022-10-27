@@ -106,9 +106,9 @@
                 Icon: "img/icons/lighthouse-ok.png"
             },
             {
-                estado: "none",
+                estado: "ok",
                 placeName: "Alumbrado",
-                Details: " Sin funcionar.",
+                Details: "Reparado", //Details: " Sin funcionar.",
                 Direccion: "Luchessi casi Miño",
                 Expediente: "22101061",
                 Imagen: "img/fotos/alum008.jpeg",
@@ -116,7 +116,7 @@
                     lat: -27.38085634246395,
                     lng: -55.91615966734351
                 }],
-                Icon: "img/icons/lighthouse-no.png"
+                Icon: "img/icons/lighthouse-ok.png"
             },
             {
                 estado: "ok",
@@ -159,9 +159,9 @@
             },
 
             {
-                estado: "none",
+                estado: "ok",
                 placeName: "Alumbrado",
-                Details: "Sin funcionar",
+                Details: "Reparado", //Details: "Sin funcionar",
                 Direccion: "Alvár Nuñes en la cortada Miño",
                 Expediente: "",
                 Imagen: "img/fotos/alum005.jpeg",
@@ -169,12 +169,12 @@
                     lat: -27.381620389779286,
                     lng: -55.916257442615915
                 }],
-                Icon: "img/icons/lighthouse-no.png"
+                Icon: "img/icons/lighthouse-ok.png"
             },
             {
-                estado: "none",
+                estado: "ok",
                 placeName: "Alumbrado",
-                Details: "Sin funcionar",
+                Details: "Reparado", //Details: "Sin funcionar",
                 Direccion: "Luchessi entre San Martin y Serrano",
                 Expediente: "",
                 Imagen: "img/fotos/alum006.jpeg",
@@ -182,7 +182,7 @@
                     lat: -27.380543337262555,
                     lng: -55.918003406606324
                 }],
-                Icon: "img/icons/lighthouse-no.png"
+                Icon: "img/icons/lighthouse-ok.png"
             },
             {
                 estado: "none",
@@ -333,16 +333,17 @@
             for (var i = 0; i < markersOnMap.length; i++) {
                 var contentString = '<div id="content"><h3>' + markersOnMap[i].placeName + '</h3>'+
                                         '<p>' +
-                                            markersOnMap[i].Details;
+                                            markersOnMap[i].Details + '<br/>';
 
                                             if (markersOnMap[i].estado == 'none') {
                                                 contentString += '<br/>' +
                                                 '<b>Nro Reclamo: '+ markersOnMap[i].Expediente + '</b>' + 
-                                                '<br/>' +
-                                                '<a href="https://www.google.com/maps/search/?api=1&query=' + markersOnMap[i].LatLng[0].lat + ',' + markersOnMap[i].LatLng[0].lng + '&zoom=2" target="_blank">' +
+                                                '<br/>';
+                                            }
+                                            contentString += '<a href="https://www.google.com/maps/search/?api=1&query=' + markersOnMap[i].LatLng[0].lat + ',' + markersOnMap[i].LatLng[0].lng + '&zoom=2" target="_blank">' +
                                                     markersOnMap[i].Direccion +
                                                 '</a>';
-                                            }
+                                            
 
                                         contentString += '</p>';
                                         if (markersOnMap[i].estado == 'none') {
@@ -453,8 +454,10 @@
 
 <body>
     <button class="accordion">
-        <img src="img/icons/lighthouse-no.png">(6)Alumbrado sin funcionar&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
-        <br/><img src="img/icons/trash-no.png">(3) Contenedor a remplazar&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+        <img src="img/icons/lighthouse-no.png">(1)Alumbrado sin funcionar.
+        <br/><img src="img/icons/lighthouse-no.png">(1)Alumbrado falta poda.
+        <br/><img src="img/icons/lighthouse-no.png">(1)Falta alumbrado.
+        <br/><img src="img/icons/trash-no.png">(3) Contenedor a remplazar. 
         <br/><img src="img/icons/road.png">2 cuadras asfaltadas de 19.
     </button>
     <!--
